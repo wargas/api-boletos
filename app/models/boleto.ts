@@ -11,7 +11,7 @@ export default class Boleto extends BaseModel {
   @column()
   declare description: string
 
-  @column()
+  @column({serialize: Number})
   declare value: number
 
   @column.dateTime({ autoCreate: true })
