@@ -7,7 +7,10 @@
 |
 */
 
+const BoletosController = () => import('#controllers/boletos_controller')
 import router from '@adonisjs/core/services/router'
+
+router.resource('/boletos', BoletosController)
 
 router.get('/', async () => {
   return {
