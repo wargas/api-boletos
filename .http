@@ -1,7 +1,7 @@
 @base_url = {{baseUrl}}
 
 @email = admin@deltex.com.br
-@pass = wrgs2703
+@pass = admin
 
 # @name LOGIN
 POST {{base_url}}/auth 
@@ -30,6 +30,10 @@ GET {{base_url}}/boletos
 Authorization: Bearer {{token}}
 
 ###
+GET {{base_url}}/search?start=2025-01-06&end=2025-01-10
+Authorization: Bearer {{token}}
+
+###
 GET {{base_url}}/boletos/1
 Authorization: Bearer {{token}}
 
@@ -39,12 +43,13 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "description": "BOLETO 004", "value": 100
+    "value": 99.99, "due": "2025-01-10"
 }
 
 ### @name CREATE
 POST {{base_url}}/boletos
 Content-Type: application/json
+Authorization: Bearer {{token}}
 Accept: application/json
 
 {
