@@ -13,10 +13,15 @@ Content-Type: application/json
 }
 
 ###
+POST {{base_url}}/logout 
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+###
 @token = {{LOGIN.response.body.token}}
 
 ###
-GET {{base_url}}/
+GET {{base_url}}/me
 Authorization: Bearer {{token}}
 
 

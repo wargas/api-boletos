@@ -21,4 +21,20 @@ export default class AuthController {
 
         
     }
+
+    async logout({ auth }: HttpContext) {
+        const user = auth.getUserOrFail()
+        const identifier = user.currentAccessToken.identifier
+
+        return await User.accessTokens.delete(user, identifier)
+    }
+
+    async currentUser({auth}: HttpContext) {
+        const user = auth.getUserOrFail()
+
+        return {
+            ...user.toJSON(),
+            access: user.currentAccessToken
+        }
+    }
 }

@@ -7,6 +7,8 @@ router.post('auth', [AuthController, 'login'])
 
 
 router.group(() => {
+  router.post('logout', [AuthController, 'logout'])
+  router.get('me', [AuthController, 'currentUser'])
   router.resource('/boletos', BoletosController)
 }).use(middleware.auth({ guards: ['api'] }))
 
