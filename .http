@@ -1,0 +1,53 @@
+@base_url = {{baseUrl}}
+
+@email = admin@deltex.com.br
+@pass = wrgs2703
+
+# @name LOGIN
+POST {{base_url}}/auth 
+Content-Type: application/json
+
+{
+    "email": "{{email}}",
+    "password": "{{pass}}"
+}
+
+###
+@token = {{LOGIN.response.body.token}}
+
+###
+GET {{base_url}}/
+Authorization: Bearer {{token}}
+
+
+###
+GET {{base_url}}/boletos
+Authorization: Bearer {{token}}
+
+###
+GET {{base_url}}/boletos/1
+Authorization: Bearer {{token}}
+
+###
+PUT {{base_url}}/boletos/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "description": "BOLETO 004", "value": 100
+}
+
+### @name CREATE
+POST {{base_url}}/boletos
+Content-Type: application/json
+Accept: application/json
+
+{
+    "description": "BOLETO 03",
+    "due": "2025-01-05",
+    "value": 100.85
+}
+
+###
+DELETE {{base_url}}/boletos/1
+Authorization: Bearer {{token}}
