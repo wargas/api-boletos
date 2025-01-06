@@ -37,18 +37,6 @@ FROM base as final
 WORKDIR /usr/src/app/build
 
 # Use production node environment by default.
-ENV NODE_ENV production
-ENV PORT=3333
-ENV HOST=0.0.0.0
-ENV TZ=UTC
-ENV PORT=3333
-ENV LOG_LEVEL=info
-ENV APP_KEY=Jr-_tjAL9Te8CG6GYhda_V7zbKBQZJm_
-ENV DB_HOST=deltex.com.br
-ENV DB_PORT=3306
-ENV DB_USER=admin
-ENV DB_PASSWORD=Wrgs2703!
-ENV DB_DATABASE=boletos
 
 RUN echo "BUILD_TIME=$(date -u '+%Y-%m-%dT%H:%M:%S')" > .env
 
