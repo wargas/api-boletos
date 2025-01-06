@@ -37,6 +37,7 @@ FROM base as final
 WORKDIR /usr/src/app/build
 
 # Use production node environment by default.
+ENV BUILD_TIME=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 ENV NODE_ENV production
 ENV PORT=3333
 ENV HOST=0.0.0.0
