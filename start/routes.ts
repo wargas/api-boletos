@@ -16,7 +16,7 @@ router.group(() => {
 
 router.get('/', async () => {
   return {
-    hello: 'world', version: '1.0'
+    hello: 'world', version: '1.0', build: process.env.BUILD_TIME || '-'
   }
 })
 
