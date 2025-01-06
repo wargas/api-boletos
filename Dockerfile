@@ -51,6 +51,8 @@ ENV DB_USER=admin
 ENV DB_PASSWORD=Wrgs2703!
 ENV DB_DATABASE=boletos
 
+RUN echo "BUILD_TIME=$(date -u '+%Y-%m-%dT%H:%M:%S')" > .env
+
 # Run the application as a non-root user.
 USER node
 
