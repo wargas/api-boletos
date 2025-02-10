@@ -61,3 +61,7 @@ Accept: application/json
 ###
 DELETE {{base_url}}/boletos/1
 Authorization: Bearer {{token}}
+
+
+###
+OPTIONS {{base_url}}/me
