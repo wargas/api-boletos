@@ -17,7 +17,6 @@ export default class AuthController {
 
         const token = await User.accessTokens.create(user);
 
-        
         return {user, token: token.toJSON().token};
         
     }
