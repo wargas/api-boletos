@@ -3,7 +3,18 @@
 @email = admin@deltex.com.br
 @pass = admin
 
-# @name LOGIN
+### @name REGISTER
+POST {{base_url}}/register 
+Content-Type: application/json
+
+{
+    "fullName": "Diassis",
+    "email": "diassis@caixaaqui.com",
+    "password": "123456"
+}
+
+
+### @name LOGIN
 POST {{base_url}}/auth 
 Content-Type: application/json
 

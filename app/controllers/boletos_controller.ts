@@ -8,6 +8,8 @@ export default class BoletosController {
         const start = request.input('start', '')
         const end = request.input('end', '')
 
+        const page = request.input('page', '1')
+
         const user = auth.getUserOrFail()
 
         const query = Boleto.query().where('user_id', user.id)
@@ -23,7 +25,7 @@ export default class BoletosController {
 
         const sum = await query.clone().sum('value as value').first()
 
-        const paginate = (await query.paginate(1, 15)).toJSON();
+        const paginate = (await query.paginate(parseInt(page), 15)).toJSON();
 
         return {
             sum, ...paginate
