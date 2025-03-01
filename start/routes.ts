@@ -4,6 +4,7 @@ import router from '@adonisjs/core/services/router'
 import { middleware } from './kernel.js'
 
 router.post('auth', [AuthController, 'login'])
+router.post('register', [AuthController, 'store'])
 
 
 router.group(() => {

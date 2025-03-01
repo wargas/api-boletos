@@ -21,6 +21,12 @@ export default class AuthController {
         
     }
 
+    async store({ request}: HttpContext) {
+        const data = request.only(['fullName', 'email', 'password'])
+
+        return await User.create(data)
+    }
+
     async logout({ auth }: HttpContext) {
         const user = auth.getUserOrFail()
         const identifier = user.currentAccessToken.identifier
